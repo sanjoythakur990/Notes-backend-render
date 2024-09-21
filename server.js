@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}))
 
 // CORS configuration
 const corsOptions = {
-    origin: ['https://notes-frontend-vercel-eight.vercel.app', 'http://localhost:3000'], // Allow only the frontend deployed domain
+    origin: ['https://notes-frontend-vercel-eight.vercel.app', 'http://localhost:3000'], // Allow only these domains
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
