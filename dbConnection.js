@@ -15,7 +15,7 @@ const sequelize = new Sequelize(process.env.MYSQL_DB, process.env.MYSQL_USER, pr
   },
   dialectOptions: {
     ssl: {
-      ca: fs.readFileSync(__dirname + '/certs/ca.pem'),  // Load the CA certificate
+      ca: fs.readFileSync(process.env.SSL_CERT_PATH),  
       require: true,
       rejectUnauthorized: true  // Use true if Aiven requires strict SSL validation
     }
@@ -24,6 +24,7 @@ const sequelize = new Sequelize(process.env.MYSQL_DB, process.env.MYSQL_USER, pr
 
 sequelize.authenticate()
   .then(() => {
+    // console.log(__dirname);
     console.log('Secure connection to the Aiven-hosted MySQL database has been established successfully.');
   })
   .catch(err => {
