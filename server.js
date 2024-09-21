@@ -8,17 +8,17 @@ const PORT= process.env.PORT || 8000
 
 
 // middlewares
-app.use(cors())
+// app.use(cors())
 app.use(express.json())    // body parser
 app.use(express.urlencoded({extended:true}))
 
 
 // CORS configuration
-// const corsOptions = {
-//     origin: 'https://notes-frontend-vercel-eight.vercel.app', // Allow only the frontend deployed domain
-//     optionsSuccessStatus: 200
-// };
-// app.use(cors(corsOptions));
+const corsOptions = {
+    origin: ['https://notes-frontend-vercel-eight.vercel.app', 'http://localhost:3000'], // Allow only the frontend deployed domain
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 
 
 app.get("/", (req,res)=>{
